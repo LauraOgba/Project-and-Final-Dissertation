@@ -7,16 +7,13 @@ const EventSchema = mongoose.Schema({
         type: String
     },
     location: {
-        type: String,
-        required: true
+        type: String
     },
     start: {
-        type: String,
-        required: true
+        type: String
     },
     end: {
-        type: String,
-        required: true
+        type: String
     }
 });
 
