@@ -15,6 +15,7 @@ import { ValidateService} from './services/validate.service';
 import { AuthService} from './services/auth.service';
 import { FlashMessagesModule } from 'angular2-flash-messages/module';
 import {AuthGuard} from "./guard/auth.guard";
+import { StudyComponent } from './components/study/study.component';
 
 const appRoutes: Routes = [
   {path:  '', component: HomeComponent},
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     HomeComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    StudyComponent
   ],
   imports: [
     BrowserModule,
