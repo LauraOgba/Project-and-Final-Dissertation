@@ -26,10 +26,8 @@ module.exports = function(passport) {
 
     module.exports = function(passport) {
         let opts = {};
-        console.log(jwt_payload);
         opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
         passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
-            console.log(jwt_payload);
             Event.getEventById()(jwt_payload.data._id, (err, event) => {
                 if (err) {
                     return done(err, false);

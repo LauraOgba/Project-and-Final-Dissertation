@@ -4,7 +4,7 @@ const config = require('../config/database');
 // User Schema
 const EventSchema = mongoose.Schema({
     title: {
-        type: String
+        type: String,
     },
     location: {
         type: String

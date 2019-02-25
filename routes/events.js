@@ -7,10 +7,10 @@ const Event = require('../models/events');
 
 
 //Register
-router.post('/study', (req, res, next) =>{
+router.post('/calendar', (req, res, next) =>{
     let newEvent = new Event({
         title: req.body.title,
-        location: req.body.location,
+        description: req.body.description,
         start:req.body.start,
         end: req.body.end
     });
