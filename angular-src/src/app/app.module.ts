@@ -8,20 +8,23 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 import { ValidateService} from './services/validate.service';
 import { AuthService} from './services/auth.service';
 import { FlashMessagesModule } from 'angular2-flash-messages/module';
 import {AuthGuard} from "./guard/auth.guard";
-import { StudyComponent } from './components/study/study.component';
+import 'fullcalendar';
+import * as $ from 'jquery';
+
+
 
 const appRoutes: Routes = [
   {path:  '', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
+  {path: 'calendar', component: CalendarComponent, canActivate:[AuthGuard]},
   {path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]}
 
 ]
@@ -33,9 +36,8 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    DashboardComponent,
+    CalendarComponent,
     ProfileComponent,
-    StudyComponent
   ],
   imports: [
     BrowserModule,

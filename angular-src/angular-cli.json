@@ -18,9 +18,16 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/fullcalendar/dist/fullcalendar.min.css",
+        "../node_modules/fullcalendar-scheduler/dist/scheduler.min.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/moment/min/moment.min.js",
+        "../node_modules/fullcalendar/dist/fullcalendar.min.js",
+        "../node_modules/fullcalendar-scheduler/dist/scheduler.min.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
@@ -63,5 +70,6 @@
       "pipe": true,
       "service": true
     }
-  }
+  },
+  "version": 0
 }

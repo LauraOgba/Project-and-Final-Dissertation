@@ -34,7 +34,7 @@ const user ={
         this.flashMessage.show('you are now logged in', {
           cssClass: 'alert-success', timeout: 5000});
         //Redirect
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['calendar']);
       }else{
         //Error Message if the login fails
         this.flashMessage.show(data.msg, {
