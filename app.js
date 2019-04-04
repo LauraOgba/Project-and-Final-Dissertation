@@ -8,7 +8,6 @@ const config =require('./config/database');
 
 //Connect to database
 mongoose.connect(config.database, {useNewUrlParser:true});
-
 //On Connection
 mongoose.connection.on('connected', () => {
     console.log('connected to database' +config.database);
