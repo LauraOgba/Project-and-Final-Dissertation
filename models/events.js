@@ -23,7 +23,7 @@ module.exports.getEventById = function(id, callback){
     Event.findById(id, callback);
 }
 
-module.exports.getEventByid = function(id, callback){
+module.exports.getEventById = function(id, callback){
     const query = {id: id}
     Event.findOne(query, callback);
 }

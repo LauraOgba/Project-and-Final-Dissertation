@@ -27,6 +27,8 @@
     "core-js": "^2.5.4",
     "dhtmlx-scheduler": "^5.1.6",
     "express": "^4.16.4",
+    "mongodb": "^2.2.36",
+    "mongoskin": "^2.1.0",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.4.0",
     "ts-helpers": "^1.1.1",

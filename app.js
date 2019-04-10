@@ -7,6 +7,10 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const config =require('./config/database');
 
+//using mongoskin to connect the calendar to the database
+const db = require('mongoskin').db("mongodb://localhost/mydb", { w: 0});
+    db.bind('event');
+
 //Connect to database
 mongoose.connect(config.database, {useNewUrlParser:true});
 //On Connection
@@ -36,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 // Body Parser Middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //passport Middleware
 app.use(passport.initialize());
@@ -63,23 +68,6 @@ app.listen(port, () => {
     
 });
 
-app.get('/init', function(req, res){
-    db.events.insert({
-        text:"My test event A",
-        start_date: new Date(2018,8,1),
-        end_date:   new Date(2018,8,5)
-    });
-    db.events.insert({
-        text:"One more test event",
-        start_date: new Date(2018,8,3),
-        end_date:   new Date(2018,8,8),
-        color: "#DD8616"
-    });
-
-    /*... skipping similar code for other test events...*/
-
-    res.send("Test events were added to the database")
-});
 
 
 app.get('/data', function(req, res){

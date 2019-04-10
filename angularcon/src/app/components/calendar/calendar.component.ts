@@ -13,16 +13,11 @@ import {} from "@types/dhtmlxscheduler";
   encapsulation: ViewEncapsulation.None,
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css']
+  styleUrls: ['./calendar.component.css'],
+  providers:[ AuthService ]
 })
 export class CalendarComponent implements OnInit {
   @ViewChild("scheduler_here") calendarContainer: ElementRef;
-  id: string;
-  start_date: string;
-  end_date: string;
-  text: string;
-
-
 
   constructor(
     private authService: AuthService,
@@ -30,7 +25,12 @@ export class CalendarComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    scheduler.init(this.calendarContainer.nativeElement, new Date());
+    scheduler.config.xml_date = "%Y-%m-%d %H:%i";
+    scheduler.init(this.calendarContainer.nativeElement);
+    this.authService.get()
+      .then((data) => {
+        scheduler.parse(data, "json");
+      });
   }
 
 }
