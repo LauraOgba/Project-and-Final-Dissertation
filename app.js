@@ -65,7 +65,7 @@ res.sendFile(path.join(__dirname, 'public/index.html'));
 //Start server
 app.listen(port, () => {
     console.log('Server Started on port' + port);
-    
+
 });
 
 
@@ -78,5 +78,35 @@ app.get('/data', function(req, res){
 
         //output response
         res.send(data);
+    });
+
+    app.get('/init', function(req, res){
+        db.event.insert({
+            text:"My test event A",
+            start_date: new Date(2018,8,1),
+            end_date:   new Date(2018,8,5)
+        });
+        db.event.insert({
+            text:"One more test event",
+            start_date: new Date(2018,8,3),
+            end_date:   new Date(2018,8,8),
+            color: "#DD8616"
+        });
+
+        /*... skipping similar code for other test events...*/
+
+        res.send("Test events were added to the database")
+    });
+
+
+    app.get('/data', function(req, res){
+        db.event.find().toArray(function(err, data){
+            //set id property for all records
+            for (var i = 0; i < data.length; i++)
+                data[i].id = data[i]._id;
+
+            //output response
+            res.send(data);
+        });
     });
 });
