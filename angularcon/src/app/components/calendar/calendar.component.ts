@@ -3,6 +3,7 @@ import {AuthService} from "../../services/auth.service";
 import 'fullcalendar';
 import {Router} from "@angular/router";
 import "dhtmlx-scheduler";
+// @ts-ignore
 import {} from "@types/dhtmlxscheduler";
 
 @Component({
@@ -12,17 +13,19 @@ import {} from "@types/dhtmlxscheduler";
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-  title: String;
-  location: String;
+  @ViewChild("scheduler_here") calendarContainer: ElementRef;
+  id: string;
+  start_date: string;
+  end_date: string;
+  text: string;
+
   constructor(
     private authService: AuthService,
     private router:Router,
   ) {}
 
   ngOnInit() {
-    $('#calendar').fullCalendar({
-      defaultView: 'month'
-    });
+    scheduler.init(this.calendarContainer.nativeElement, new Date());
   }
 
 }

@@ -9,10 +9,10 @@ const Event = require('../models/events');
 //Register
 router.post('/calendar', (req, res, next) =>{
     let newEvent = new Event({
-        title: req.body.title,
-        description: req.body.description,
-        start:req.body.start,
-        end: req.body.end
+        id: req.body.id,
+        start_date:req.body.start_date,
+        end_date: req.body.end,
+        text:req.body.end
     });
 
     Event.addEvent(newEvent, (err, event) =>{

@@ -18,6 +18,7 @@ import {AuthGuard} from "../../../angularcon/src/app/guard/auth.guard";
 import 'fullcalendar';
 import * as $ from 'jquery';
 
+
 const appRoutes: Routes = [
   {path:  '', component: HomeComponent},
   {path: 'register', component: RegisterComponent},

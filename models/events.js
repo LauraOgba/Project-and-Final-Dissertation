@@ -3,16 +3,16 @@ const config = require('../config/database');
 
 // User Schema
 const EventSchema = mongoose.Schema({
-    title: {
+    id: {
         type: String,
     },
-    location: {
+    start_date: {
         type: String
     },
-    start: {
+    end_date: {
         type: String
     },
-    end: {
+    text:{
         type: String
     }
 });
@@ -23,8 +23,8 @@ module.exports.getEventById = function(id, callback){
     Event.findById(id, callback);
 }
 
-module.exports.getEventByTitle = function(title, callback){
-    const query = {title: title}
+module.exports.getEventByid = function(id, callback){
+    const query = {id: id}
     Event.findOne(query, callback);
 }
 
