@@ -1,10 +1,13 @@
-import {Component, ElementRef,OnInit, ViewChild,ViewEncapsulation} from '@angular/core';
+import {Component, ElementRef, Injectable, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import 'fullcalendar';
 import {Router} from "@angular/router";
 import "dhtmlx-scheduler";
 // @ts-ignore
 import {} from "@types/dhtmlxscheduler";
+
+
+
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -18,6 +21,8 @@ export class CalendarComponent implements OnInit {
   start_date: string;
   end_date: string;
   text: string;
+
+
 
   constructor(
     private authService: AuthService,

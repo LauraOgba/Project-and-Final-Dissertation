@@ -2,12 +2,24 @@ import { Injectable } from '@angular/core';
 import {Http, Headers} from "@angular/http";
 import 'rxjs/add/operator/map';
 import {tokenNotExpired} from "angular2-jwt";
+import {Event} from "../../../../models/events";
+
+
+
 
 @Injectable()
 export class AuthService {
 authToken: any;
 user: any;
 event: any;
+
+  get(): Promise<Event[]>{
+    return Promise.resolve([
+      {id: 1, start_date: "2017-09-01 00:00", end_date: "2017-09-01 13:00", text: "Event 1"},
+      {id: 2, start_date: "2017-09-03 00:00", end_date: "2017-09-03 13:00", text: "Event 2"},
+    ]);
+  }
+
   constructor(private http:Http) { }
   registerUser(user):any{
     //Set a header value
