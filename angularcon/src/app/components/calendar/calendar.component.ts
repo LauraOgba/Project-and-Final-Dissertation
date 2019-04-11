@@ -25,7 +25,8 @@ export class CalendarComponent implements OnInit {
   ngOnInit() {
 
     scheduler.init('scheduler_here', new Date(2019, 4, 10), "month");
-
+    scheduler.templates.xml_date = function(value){ return new Date(value); };
+    scheduler.load("/data", "json");
   }
 
 }

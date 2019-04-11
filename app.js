@@ -70,15 +70,6 @@ app.listen(port, () => {
 
 
 
-app.get('/data', function(req, res){
-    db.event.find().toArray(function(err, data){
-        //set id property for all records
-        for (var i = 0; i < data.length; i++)
-            data[i].id = data[i]._id;
-
-        //output response
-        res.send(data);
-    });
 
     app.get('/init', function(req, res){
         db.event.insert({
@@ -109,4 +100,3 @@ app.get('/data', function(req, res){
             res.send(data);
         });
     });
-});
