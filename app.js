@@ -68,10 +68,7 @@ app.listen(port, () => {
 
 });
 
-
-
-
-    app.get('/init', function(req, res){
+app.get('/event', function(req, res){
         db.event.insert({
             text:"My test event A",
             start_date: new Date(2018,8,1),

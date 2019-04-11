@@ -7,7 +7,7 @@ const Event = require('../models/events');
 
 
 //Register
-router.post('/calendar', (req, res, next) =>{
+router.post('/init', (req, res, next) =>{
     let newEvent = new Event({
         id: req.body.id,
         start_date:req.body.start_date,
