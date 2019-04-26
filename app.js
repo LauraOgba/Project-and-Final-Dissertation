@@ -109,5 +109,17 @@ app.get('/event', function(req, res){
             delete data.id;
             delete data["!nativeeditor_status"];
 
+            //output confirmation response
+            function update_response(err, result){
+                if (err)
+                    mode = "error";
+                else if (mode == "inserted")
+                    tid = data._id;
+
+                res.setHeader("Content-Type","application/json");
+                res.send({action: mode, sid: sid, tid: tid});
+
+            }
+
         });
     });
