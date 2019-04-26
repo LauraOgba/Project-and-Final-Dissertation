@@ -121,5 +121,15 @@ app.get('/event', function(req, res){
 
             }
 
+            //run db operation
+            if (mode == "updated")
+                db.event.updateById( sid, data, update_response);
+            else if (mode == "inserted")
+                db.event.insert(data, update_response);
+            else if (mode == "deleted")
+                db.event.removeById( sid, update_response);
+            else
+                res.send("Not supported operation");
+
         });
     });
