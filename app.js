@@ -96,4 +96,18 @@ app.get('/event', function(req, res){
             //output response
             res.send(data);
         });
+        app.post('/data', function(req, res) {
+            var data = req.body;
+
+            //get operation type
+            var mode = data["!nativeeditor_status"];
+            //get id of record
+            var sid = data.id;
+            var tid = sid;
+
+            //remove properties which we do not want to save in DB
+            delete data.id;
+            delete data["!nativeeditor_status"];
+
+        });
     });
