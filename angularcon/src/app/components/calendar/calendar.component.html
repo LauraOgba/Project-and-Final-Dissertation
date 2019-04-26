@@ -17,3 +17,6 @@
   </div>
 </div>
 
+<script> scheduler.init('scheduler_here',new Date(2019,4,26),"month");
+scheduler.templates.xml_date = function(value){ return new Date(value); };
+scheduler.load("/data", "json");</script>
